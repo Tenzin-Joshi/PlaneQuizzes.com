@@ -1,143 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aviation Skills Quiz</title>
-    <style>
-        * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    background-color: #e9eff1;
-    color: #333;
-    text-align: center;
-}
-
-header {
-    background: linear-gradient(to right, #f700ff, #00f);
-    padding: 20px;
-    color: white;
-    font-size: 30px;
-}
-
-h1 {
-    margin-bottom: 10px;
-}
-
-.quiz-settings, #quiz-section, #results-section {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 600px;
-    background-color: rgba(225, 225, 225, 0.3);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    transition: transform 0.3s;
-}
-
-.quiz-settings:hover, #quiz-section:hover, #results-section:hover {
-    transform: scale(1.02);
-}
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-}
-
-input, select {
-    padding: 10px;
-    width: 100%;
-    margin-bottom: 20px;
-    border: 2px solid #005d88;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-button {
-    padding: 10px 20px;
-    background-color: #005d88;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-button:hover {
-    background-color: #00476b;
-    transform: translateY(-2px);
-}
-
-.hidden {
-    display: none;
-}
-
-.question {
-    margin: 20px 0;
-}
-
-.option {
-    display: block;
-    padding: 15px;
-    margin: 10px 0;
-    background-color: #f0f4f8;
-    border: 2px solid #005d88;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.option:hover {
-    background-color: #cfe1e5;
-    transform: scale(1.01);
-}
-
-.correct {
-    background-color: #c8e6c9; /* Light green */
-    border-color: #388e3c;
-}
-
-.incorrect {
-    background-color: #ffcdd2; /* Light red */
-    border-color: #d32f2f;
-}
-
-#results-section {
-    background-color: #e3f2fd;
-}
-
-#result-text, #time-taken {
-    font-size: 20px;
-    margin: 10px 0;
-}
-.back-video{
-    position:  fixed;
-    right: 0;
-    bottom: 0;
-    z-index: -1000;
-}
-@media (min-aspect-ratio: 16/9){
-    .back-video{
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aviation Skills Quiz</title>
+        <style>
+            * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    body {
+        background-color: #e9eff1;
+        color: #333;
+        text-align: center;
+    }
+    
+    header {
+        background: linear-gradient(to right, #f700ff, #00f);
+        padding: 20px;
+        color: white;
+        font-size: 30px;
+    }
+    
+    h1 {
+        margin-bottom: 10px;
+    }
+    
+    .quiz-settings, .quiz-section, .results-section {
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 600px;
+        background-color: rgba(225, 225, 225, 0.3);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        transition: transform 0.3s;
+    }
+    
+    .quiz-settings:hover, #quiz-section:hover, #results-section:hover {
+        transform: scale(1.02);
+    }
+    
+    label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+    }
+    
+    input, select {
+        padding: 10px;
         width: 100%;
-        height: auto;
+        margin-bottom: 20px;
+        border: 2px solid #005d88;
+        border-radius: 5px;
+        font-size: 16px;
     }
-}
-@media (max-aspect-ratio: 16/9){
+    
+    button {
+        padding: 10px 20px;
+        background-color: #005d88;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    
+    button:hover {
+        background-color: #00476b;
+        transform: translateY(-2px);
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .question {
+        margin: 20px 0;
+    }
+    
+    .option {
+        display: block;
+        padding: 15px;
+        margin: 10px 0;
+        background-color: #f0f4f8;
+        border: 2px solid #005d88;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    
+    .option:hover {
+        background-color: #cfe1e5;
+        transform: scale(1.01);
+    }
+    
+    .correct {
+        background-color: #c8e6c9; /* Light green */
+        border-color: #388e3c;
+    }
+    
+    .incorrect {
+        background-color: #ffcdd2; /* Light red */
+        border-color: #d32f2f;
+    }
+    
+    #results-section {
+        background-color: #e3f2fd;
+    }
+    
+    #result-text, #time-taken {
+        font-size: 20px;
+        margin: 10px 0;
+    }
     .back-video{
-        width: auto;
-        height: 100%;
+        position:  fixed;
+        right: 0;
+        bottom: 0;
+        z-index: -1000;
     }
-}
-
-    </style>
-</head>
+    @media (min-aspect-ratio: 16/9){
+        .back-video{
+            width: 100%;
+            height: auto;
+        }
+    }
+    @media (max-aspect-ratio: 16/9){
+        .back-video{
+            width: auto;
+            height: 100%;
+        }
+    }
+    
+        </style>
+    </head>
+    
 <body>
     <video autoplay loop muted playsinline class="back-video">
         <source src="videoplayback (6).mp4" type="video/mp4">
@@ -149,243 +150,276 @@ button:hover {
         <p>Test your knowledge of aviation with this interactive quiz.</p>
     </header>
 
-    <section class="quiz-settings">
-        <h2 style="color: #fff;">Customize Your Quiz</h2>
-        <form id="quiz-settings-form">
-            <label for="num-questions" style="color: #fff;">Number of Questions:</label>
-            <input type="number" id="num-questions" name="num-questions" min="5" max="30" value="5" required>
+    <div class="quiz-settings">
+        <label for="numQuestions">Number of Questions (1-10): </label>
+        <input type="number" id="numQuestions" min="1" max="10" value="5"><br>
+        <label for="difficulty">Select Difficulty: </label>
+        <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+        </select><br>
+        <button id="startQuiz">Start Quiz</button>
+    </div>
 
-            <label for="difficulty" style="color: #fff;">Select Difficulty:</label>
-            <select id="difficulty" name="difficulty" required>
-                <option value="easy">Easy</option>
-                <option value="medium">Medium</option>
-                <option value="hard">Hard</option>
-            </select>
-
-            <button type="button" id="start-quiz">Start Quiz</button>
-        </form>
-    </section>
-
-    <section id="quiz-section" class="hidden">
+    <div class="quiz-section hidden">
         <div id="question-container"></div>
-        <button id="next-question" class="hidden" style="padding: 10px 250px;
+        <button id="next-question" class="hidden" onclick="nextQuestion()" style="padding: 10px 250px;
         background: linear-gradient(to right, #f00, #00f);
         color: white;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
-        transition: background-color 0.3s, transform 0.2s;">Next Question</button>
-    </section>
+        transition: background-color 0.3s, transform 0.2s;">Next Question </button>
+    </div>
 
-    <section id="results-section" class="hidden">
-        <h2>Your Results</h2>
+    <div class="results-section hidden">
+        <h2>Results</h2>
         <p id="result-text"></p>
         <p id="time-taken"></p>
-        <button id="restart-quiz">Take Another Quiz</button>
-    </section>
+        <button onclick="restartQuiz()">Restart Quiz</button>
+    </div>
 
     <script>
-        document.getElementById('start-quiz').addEventListener('click', startQuiz);
-document.getElementById('next-question').addEventListener('click', nextQuestion);
-document.getElementById('restart-quiz').addEventListener('click', restartQuiz);
+        let questions = [];
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+        let startTime;
 
-let startTime;
-let correctAnswers = 0;
-let currentQuestionIndex = 0;
-let questions = [];
-
-function startQuiz() {
-    const numQuestions = document.getElementById('num-questions').value;
-    const difficulty = document.getElementById('difficulty').value;
-
-    // Reset the quiz state
-    correctAnswers = 0;
-    currentQuestionIndex = 0;
-
-    // Hide settings section and show quiz section
-    document.querySelector('.quiz-settings').classList.add('hidden');
-    document.getElementById('quiz-section').classList.remove('hidden');
-    
-    // Generate questions based on number and difficulty
-    questions = getQuestions(numQuestions, difficulty);
-    
-    // Start timer
-    startTime = new Date();
-
-    // Show the first question
-    showQuestion(currentQuestionIndex);
-}
-
-function getQuestions(numQuestions, difficulty) {
-    const easyQuestions = [
-        {
-            question: "What is the primary function of an altimeter?",
-            options: ["Measure altitude", "Measure speed", "Measure distance", "Measure temperature"],
-            answer: "Measure altitude"
-        },
-        {
-            question: "What does the acronym VFR stand for?",
-            options: ["Visual Flight Rules", "Variable Frequency Range", "Very Fast Rotation", "Virtual Flight Regulation"],
-            answer: "Visual Flight Rules"
-        },
-        {
-            question: "What is the main purpose of a control tower?",
-            options: ["To control the weather", "To manage air traffic", "To refuel planes", "To maintain runways"],
-            answer: "To manage air traffic"
-        },
-        {
-            question: "What does the 'fuselage' refer to?",
-            options: ["The tail of the plane", "The main body of the aircraft", "The wings of the plane", "The cockpit"],
-            answer: "The main body of the aircraft"
-        },
-        {
-            question: "Which of the following is not a type of cloud?",
-            options: ["Cirrus", "Cumulus", "Nimbostratus", "Aeroform"],
-            answer: "Aeroform"
-        }
-    ];
-
-    const mediumQuestions = [
-        {
-            question: "What does the term 'stall' mean in aviation?",
-            options: ["Loss of altitude", "Loss of lift", "Loss of speed", "Loss of control"],
-            answer: "Loss of lift"
-        },
-        {
-            question: "Which instrument shows the aircraft's altitude?",
-            options: ["Airspeed indicator", "Attitude indicator", "Altimeter", "Heading indicator"],
-            answer: "Altimeter"
-        },
-        {
-            question: "What is the purpose of a transponder?",
-            options: ["To navigate", "To communicate with ATC", "To identify the aircraft on radar", "To control the engine"],
-            answer: "To identify the aircraft on radar"
-        },
-        {
-            question: "What is the minimum visibility required for VFR flight?",
-            options: ["1 mile", "3 miles", "5 miles", "10 miles"],
-            answer: "3 miles"
-        },
-        {
-            question: "What does 'IFR' stand for?",
-            options: ["Instrument Flight Rules", "Instrument Flight Regulation", "Instrument Frequency Range", "Initial Flight Rules"],
-            answer: "Instrument Flight Rules"
-        }
-    ];
-
-    const hardQuestions = [
-        {
-            question: "What is the primary cause of a 'wake turbulence'?",
-            options: ["Weather conditions", "Engine failure", "Wingtip vortices", "Control surface failure"],
-            answer: "Wingtip vortices"
-        },
-        {
-            question: "In what phase of flight is the most fuel consumed?",
-            options: ["Cruise", "Climb", "Descent", "Takeoff"],
-            answer: "Takeoff"
-        },
-        {
-            question: "What does a yellow light indicate on the runway?",
-            options: ["Clear to land", "Caution", "Runway closed", "Airborne"],
-            answer: "Caution"
-        },
-        {
-            question: "What is the purpose of the 'dead reckoning' method?",
-            options: ["To determine altitude", "To navigate using known speeds and headings", "To communicate with ATC", "To calculate fuel consumption"],
-            answer: "To navigate using known speeds and headings"
-        },
-        {
-            question: "What is the maximum allowable blood alcohol concentration for pilots?",
-            options: ["0.04%", "0.08%", "0.10%", "0.02%"],
-            answer: "0.04%"
-        }
-    ];
-
-    // Combine questions based on difficulty
-    let selectedQuestions = [];
-    if (difficulty === "easy") {
-        selectedQuestions = easyQuestions.slice(0, numQuestions);
-    } else if (difficulty === "medium") {
-        selectedQuestions = mediumQuestions.slice(0, numQuestions);
-    } else if (difficulty === "hard") {
-        selectedQuestions = hardQuestions.slice(0, numQuestions);
-    }
-
-    return selectedQuestions;
-}
-
-function showQuestion(index) {
-    const questionContainer = document.getElementById('question-container');
-    questionContainer.innerHTML = '';
-
-    const questionData = questions[index];
-    const questionElement = document.createElement('div');
-    questionElement.classList.add('question');
-    questionElement.innerHTML = `<h3>${questionData.question}</h3>`;
-
-    questionData.options.forEach(option => {
-        const optionElement = document.createElement('div');
-        optionElement.classList.add('option');
-        optionElement.textContent = option;
-        optionElement.onclick = () => selectOption(optionElement, questionData.answer);
-        questionElement.appendChild(optionElement);
-    });
-
-    questionContainer.appendChild(questionElement);
-}
-
-function selectOption(selected, correctAnswer) {
-    const options = selected.parentNode.querySelectorAll('.option');
-    options.forEach(option => {
-        option.classList.remove('correct', 'incorrect');
-    });
-
-    if (selected.textContent === correctAnswer) {
-        selected.classList.add('correct');
-        correctAnswers++;
-    } else {
-        selected.classList.add('incorrect');
-        options.forEach(option => {
-            if (option.textContent === correctAnswer) {
-                option.classList.add('correct');
+        const easyQuestions = [
+            {
+                question: "What does 'VFR' stand for?",
+                options: ["Visual Flight Rules", "Very Fast Rocket", "Vertical Flight Regulation", "Variable Frequency Range"],
+                answer: "Visual Flight Rules"
+            },
+            {
+                question: "What is the purpose of flaps on an aircraft?",
+                options: ["Increase lift at lower speeds", "Decrease drag", "Improve fuel efficiency", "Enhance stability"],
+                answer: "Increase lift at lower speeds"
+            },
+            {
+                question: "Which instrument indicates the aircraft's altitude?",
+                options: ["Airspeed indicator", "Attitude indicator", "Altimeter", "Heading indicator"],
+                answer: "Altimeter"
+            },
+            {
+                question: "What does the term 'stall' refer to in aviation?",
+                options: ["Loss of control", "Engine failure", "Loss of lift", "Speed exceeding limits"],
+                answer: "Loss of lift"
+            },
+            {
+                question: "Which aircraft component controls the pitch of the aircraft?",
+                options: ["Ailerons", "Rudder", "Elevators", "Flaps"],
+                answer: "Elevators"
+            },
+            {
+                question: "What does a red light on an aircraft's instrument panel typically indicate?",
+                options: ["Normal operation", "Warning or emergency", "Fuel level low", "Battery charging"],
+                answer: "Warning or emergency"
+            },
+            {
+                question: "Which navigation aid uses a rotating beam to provide direction?",
+                options: ["VOR", "ILS", "NDB", "GPS"],
+                answer: "VOR"
+            },
+            {
+                question: "What is the primary purpose of the aircraft's landing gear?",
+                options: ["Provide lift", "Stabilize flight", "Allow landing and takeoff", "Reduce drag"],
+                answer: "Allow landing and takeoff"
+            },
+            {
+                question: "What is a common cause of turbulence during flight?",
+                options: ["Weather conditions", "Engine failure", "Weight distribution", "Pilot error"],
+                answer: "Weather conditions"
             }
+        ];
+
+        const mediumQuestions = [
+            {
+                question: "What is the purpose of a pre-flight checklist?",
+                options: ["Ensure aircraft safety", "Check fuel levels", "Maximize speed", "Reduce weight"],
+                answer: "Ensure aircraft safety"
+            },
+            {
+                question: "What does the term 'flying blind' refer to?",
+                options: ["Flying without instruments", "Flying without visual contact", "Flying in poor weather", "Flying without a co-pilot"],
+                answer: "Flying without visual contact"
+            },
+            {
+                question: "What is the function of the ailerons on an aircraft?",
+                options: ["Control roll", "Control yaw", "Control pitch", "Control thrust"],
+                answer: "Control roll"
+            },
+            {
+                question: "Which phase of flight has the highest fuel consumption?",
+                options: ["Cruise", "Takeoff", "Climb", "Descent"],
+                answer: "Takeoff"
+            },
+            {
+                question: "What is the main purpose of the aircraft's throttle?",
+                options: ["Control altitude", "Control speed", "Control direction", "Control fuel flow"],
+                answer: "Control speed"
+            },
+            {
+                question: "What do the red and green lights on an aircraft indicate?",
+                options: ["Altitude and speed", "Left and right wing position", "Landing gear status", "Fuel levels"],
+                answer: "Left and right wing position"
+            },
+            {
+                question: "What is the purpose of the vertical stabilizer on an aircraft?",
+                options: ["Control pitch", "Control yaw", "Control roll", "Increase speed"],
+                answer: "Control yaw"
+            },
+            {
+                question: "Which part of the aircraft is responsible for generating lift?",
+                options: ["Fuselage", "Wings", "Tail", "Landing gear"],
+                answer: "Wings"
+            },
+            {
+                question: "What does an aircraft's compass indicate?",
+                options: ["Altitude", "Speed", "Heading", "Fuel level"],
+                answer: "Heading"
+            },
+            {
+                question: "What is the primary purpose of a flight data recorder?",
+                options: ["Monitor speed", "Record flight information", "Control autopilot", "Enhance communication"],
+                answer: "Record flight information"
+            }
+        ];
+
+        const hardQuestions = [
+            {
+                question: "What is the function of the pitot-static system?",
+                options: ["Measure altitude and speed", "Control engine temperature", "Provide fuel efficiency", "Monitor cabin pressure"],
+                answer: "Measure altitude and speed"
+            },
+            {
+                question: "What is the critical engine-out minimum speed?",
+                options: ["V1", "V2", "Vref", "Vso"],
+                answer: "V1"
+            },
+            {
+                question: "What is the purpose of the flight management system?",
+                options: ["Automate navigation and performance", "Control engine thrust", "Measure fuel consumption", "Monitor weather conditions"],
+                answer: "Automate navigation and performance"
+            },
+            {
+                question: "What is a holding pattern in aviation?",
+                options: ["A circular flight path", "A vertical climb", "A landing approach", "A descent path"],
+                answer: "A circular flight path"
+            },
+            {
+                question: "What does the term 'VOR' stand for?",
+                options: ["Visual Orientation Radar", "Variable Operational Range", "VHF Omni-directional Range", "Vertical Operational Reference"],
+                answer: "VHF Omni-directional Range"
+            },
+            {
+                question: "What does 'AIRSPEED' mean?",
+                options: ["Speed of sound", "Speed of the aircraft relative to the air", "Ground speed", "Rate of climb"],
+                answer: "Speed of the aircraft relative to the air"
+            },
+            {
+                question: "What does an aircraft's stall warning system do?",
+                options: ["Indicates low fuel", "Signals impending stall", "Controls speed", "Automatically lands the aircraft"],
+                answer: "Signals impending stall"
+            },
+            {
+                question: "What is the function of the engine's thrust reverser?",
+                options: ["Increase speed during takeoff", "Aid in landing deceleration", "Control fuel efficiency", "Reduce noise during flight"],
+                answer: "Aid in landing deceleration"
+            },
+            {
+                question: "What is the purpose of a runway incursion?",
+                options: ["Increase traffic flow", "Maintain aircraft separation", "Prevent collisions on the runway", "Enhance takeoff speed"],
+                answer: "Prevent collisions on the runway"
+            },
+            {
+                question: "What is a wake turbulence?",
+                options: ["Air disturbance from aircraft", "Weather pattern", "Flight path adjustment", "Navigation signal"],
+                answer: "Air disturbance from aircraft"
+            }
+        ];
+
+        function getQuestions() {
+            const numQuestions = document.getElementById("numQuestions").value;
+            const difficulty = document.getElementById("difficulty").value;
+
+            if (difficulty === 'easy') {
+                questions = easyQuestions.slice(0, numQuestions);
+            } else if (difficulty === 'medium') {
+                questions = mediumQuestions.slice(0, numQuestions);
+            } else {
+                questions = hardQuestions.slice(0, numQuestions);
+            }
+        }
+
+        document.getElementById('startQuiz').addEventListener('click', function() {
+            getQuestions();
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            startTime = new Date();
+            document.querySelector('.quiz-settings').classList.add('hidden');
+            document.querySelector('.quiz-section').classList.remove('hidden');
+            document.querySelector('.results-section').classList.add('hidden');
+            showQuestion();
         });
-    }
 
-    document.getElementById('next-question').classList.remove('hidden');
-}
+        function showQuestion() {
+            const questionContainer = document.getElementById('question-container');
+            const question = questions[currentQuestionIndex];
+            questionContainer.innerHTML = `<h2>${question.question}</h2>`;
+            question.options.forEach(option => {
+                const button = document.createElement('div');
+                button.classList.add('option');
+                button.innerText = option;
+                button.onclick = () => selectAnswer(option);
+                questionContainer.appendChild(button);
+            });
+        }
 
-function nextQuestion() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        showQuestion(currentQuestionIndex);
-        document.getElementById('next-question').classList.add('hidden');
-    } else {
-        submitQuiz();
-    }
-}
+        function selectAnswer(selectedOption) {
+            const question = questions[currentQuestionIndex];
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.onclick = null; // Disable further clicks
+                if (option.innerText === question.answer) {
+                    option.classList.add('correct');
+                } else if (option.innerText === selectedOption) {
+                    option.classList.add('incorrect');
+                }
+            });
 
-function submitQuiz() {
-    const endTime = new Date();
-    const timeTaken = Math.round((endTime - startTime) / 1000);
+            if (selectedOption === question.answer) {
+                correctAnswers++;
+            }
 
-    document.getElementById('quiz-section').classList.add('hidden');
-    document.getElementById('results-section').classList.remove('hidden');
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                document.getElementById('next-question').classList.remove('hidden');
+            } else {
+                endQuiz();
+            }
+        }
 
-    const totalQuestions = document.getElementById('num-questions').value;
-    const scorePercentage = Math.round((correctAnswers / totalQuestions) * 100);
+        function nextQuestion() {
+            showQuestion();
+            document.getElementById('next-question').classList.add('hidden');
+        }
 
-    document.getElementById('result-text').textContent = `You got ${correctAnswers} out of ${totalQuestions} questions right (${scorePercentage}%)`;
-    document.getElementById('time-taken').textContent = `Time taken: ${timeTaken} seconds`;
-}
+        function endQuiz() {
+            const endTime = new Date();
+            const timeTaken = (endTime - startTime) / 1000; // Time in seconds
+            document.getElementById('result-text').innerText = `You scored ${correctAnswers} out of ${questions.length}.`;
+            document.getElementById('time-taken').innerText = `Time taken: ${timeTaken} seconds.`;
+            document.querySelector('.quiz-section').classList.add('hidden');
+            document.querySelector('.results-section').classList.remove('hidden');
+        }
 
-function restartQuiz() {
-    document.getElementById('quiz-section').classList.add('hidden');
-    document.getElementById('results-section').classList.add('hidden');
-    document.querySelector('.quiz-settings').classList.remove('hidden');
-}
-
+        function restartQuiz() {
+            document.querySelector('.quiz-settings').classList.remove('hidden');
+            document.querySelector('.results-section').classList.add('hidden');
+        }
     </script>
 </body>
 </html>
